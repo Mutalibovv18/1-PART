@@ -1,0 +1,20 @@
+.phone-input-container {
+    font-family: Arial, sans-serif;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .country-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .flag {
+    font-size: 24px; 
+  }
+  .phone-number-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
