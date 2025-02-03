@@ -10,16 +10,18 @@ const PhoneInput = () => {
     const countryCode = event.target.value;
     const country = data.countries.find((c) => c.code === countryCode);
     setSelectedCountry(country);
+    setPhoneNumber(""); 
   };
+
   const handlePhoneNumberChange = (e) => {
-    const inputValue = e.target.value.replace(/\D/g, "");
+    const inputValue = e.target.value.replace(/\D/g, ""); 
     if (inputValue.length <= 15) {
       setPhoneNumber(inputValue);
     }
   };
   return (
     <div className="phone-input-container">
-      <h2>Phone Input</h2>
+      <h2>Phone</h2>
       <div className="country-selector">
         <span className="flag">{selectedCountry.flag}</span>
         <select value={selectedCountry.code} onChange={handleCountryChange}>
@@ -30,14 +32,17 @@ const PhoneInput = () => {
           ))}
         </select>
       </div>
-      <input
-        type="tel"
-        placeholder="Enter phone number"
-        value={`${selectedCountry.dialCode} ${phoneNumber}`}
-        onChange={handlePhoneNumberChange}
-        className="phone-number-input"
-        maxLength={18} 
-      />
+      <div className="phone-input-wrapper">
+        <span className="dial-code">{selectedCountry.dialCode}</span>
+        <input
+          type="tel"
+          placeholder="Enter phone number"
+          value={phoneNumber}
+          onChange={handlePhoneNumberChange}
+          className="phone-number-input"
+          maxLength={15} 
+        />
+      </div>
     </div>
   );
 };
